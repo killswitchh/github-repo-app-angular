@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --border-height: 10vh;
+  --main-container-height: calc(100vh - (2 * var(--border-height)));
+}
+
+.main-component {
+  min-height: var(--main-container-height);
+}
+.header {
+  min-height: var(--border-height);
+}
+.footer {
+  min-height: var(--border-height);
+}
+
+.card-width {
+  width: 18rem;
+}
+
+.profile-card-width {
+  width: 10rem;
+}

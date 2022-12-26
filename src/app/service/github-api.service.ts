@@ -34,7 +34,13 @@ export class GithubAPIService {
   }
 
   handleError(err: HttpErrorResponse | Error, store: Store<{ store: StoreObject }>): Observable<never> {
-    store.dispatch(setError({error: err.message}));
+    if (err instanceof Error) {
+      store.dispatch(setError({error: err.message}));
+    }
+    if (err instanceof HttpErrorResponse) {
+      store.dispatch(setError({error: err.error.message}));
+    }
+    
     return throwError(() => err);
   }
 
