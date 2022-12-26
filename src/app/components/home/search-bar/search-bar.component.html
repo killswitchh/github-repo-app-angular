@@ -1,0 +1,16 @@
+<section>
+    <form>
+        <label>
+            Github Username:
+            <input
+                type="text"
+                name="name"
+            />
+        </label>
+        <input (click)="buttonOnClick()" type="button" value="Find" />
+    
+    </form>
+    <div v-if="store.error" class="alert alert-danger" role="alert">
+        {{store$ | async}}
+    </div>
+</section>
