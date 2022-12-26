@@ -1,3 +1,4 @@
+import { setSearchString } from './../../../store/actions/store.actions';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -10,12 +11,14 @@ import { StoreObject } from 'src/app/store/reducer/store.reducer';
 })
 export class SearchBarComponent {
   store$!: Observable<StoreObject>;
+  searchString: string = '';
+
   constructor(private store: Store<{store: StoreObject}>) {
     this.store$ = store.select('store');
   }
-  
-  buttonOnClick() {
 
+  buttonOnClick() {
+    this.store.dispatch(setSearchString({searchString: this.searchString}));
   }
 
 }

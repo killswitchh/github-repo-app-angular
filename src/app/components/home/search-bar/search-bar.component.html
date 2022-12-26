@@ -5,12 +5,14 @@
             <input
                 type="text"
                 name="name"
+                [(ngModel)]="searchString"
             />
         </label>
         <input (click)="buttonOnClick()" type="button" value="Find" />
-    
     </form>
-    <div v-if="store.error" class="alert alert-danger" role="alert">
-        {{store$ | async}}
+    <div *ngIf="store$ | async as store">
+        <div *ngIf="store.error" class="alert alert-danger" role="alert">
+            {{store.error}}
+        </div>
     </div>
 </section>
